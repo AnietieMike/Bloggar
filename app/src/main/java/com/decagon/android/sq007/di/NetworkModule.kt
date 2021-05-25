@@ -25,6 +25,7 @@ val networkModule : Module = module {
     factory {
         get<Retrofit>().create(PostService::class.java)
     }
+
 }
 
 val logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

@@ -1,24 +1,18 @@
-package com.decagon.android.sq007.view
+package com.decagon.android.sq007.views.posts_list
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.decagon.android.sq007.R
-import com.decagon.android.sq007.apis.PostService
-import com.decagon.android.sq007.cache.PostDao
-import com.decagon.android.sq007.model.MainRepository
 import com.decagon.android.sq007.model.Post
 import com.decagon.android.sq007.util.DataState
-import com.decagon.android.sq007.view.adapter.BlogPostsAdapter
-import com.decagon.android.sq007.view.viewmodels.BlogPostsViewModel
-import com.google.android.material.snackbar.Snackbar
+import com.decagon.android.sq007.viewmodels.BlogPostsViewModel
 import kotlinx.android.synthetic.main.activity_blog_posts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 
 class BlogPostsActivity : AppCompatActivity() {
 
@@ -26,8 +20,8 @@ class BlogPostsActivity : AppCompatActivity() {
 //    val postDao : PostDao
 //    val postService: PostService
 //    val repository: MainRepository = MainRepository()
-    val blogPostViewModel: BlogPostsViewModel by viewModel()
-//    private val blogPostsViewModel: BlogPostsViewModel by viewModel()
+    private val blogPostViewModel: BlogPostsViewModel by viewModel()
+//    private val blogPostsViewModel: BlogPostsViewModel by viewModels()
     private lateinit var postsAdapter: BlogPostsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,25 +30,29 @@ class BlogPostsActivity : AppCompatActivity() {
 
         subscribeObservers()
 
-        val recyclerView = recyclerView
+        val recyclerView = postsRecyclerView
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        postsAdapter = BlogPostsAdapter(posts)
+        postsAdapter = BlogPostsAdapter(this, posts)
         recyclerView.adapter = postsAdapter
     }
 
     private fun subscribeObservers() {
         blogPostViewModel.dataState.observe(this, Observer { dataState ->
-            when(dataState) {
-                is DataState.Success<List<Post>> -> {
+            when(dataState.status) {
+                DataState.Status.SUCCESS -> {
                     showProgressBar(false)
-                    dataState.data
+                    dataState.data?.let { list ->
+                        postsAdapter.updateData(list)
+                    }
                 }
-                is DataState.Error -> {
+                DataState.Status.ERROR -> {
                     showProgressBar(false)
-                    showError(dataState.exception.message)
+                    dataState.message?.let {
+                        showError(it)
+                    }
                 }
-                is DataState.Loading -> {
+                DataState.Status.LOADING -> {
                     showProgressBar(true)
                 }
             }

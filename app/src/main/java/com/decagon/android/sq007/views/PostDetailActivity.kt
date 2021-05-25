@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.view
+package com.decagon.android.sq007.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

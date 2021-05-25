@@ -3,11 +3,11 @@ package com.decagon.android.sq007.cache
 import com.decagon.android.sq007.model.Post
 import com.decagon.android.sq007.util.EntityMapper
 
-class CacheMapper : EntityMapper<PostCacheEntity, Post> {
+class PostCacheMapper : EntityMapper<PostCacheEntity, Post> {
     override fun mapFromEntity(entity: PostCacheEntity): Post {
         return Post(
             userId = entity.userId,
-            id = entity.id,
+            postId = entity.id,
             title = entity.title,
             body = entity.body
         )
@@ -16,7 +16,7 @@ class CacheMapper : EntityMapper<PostCacheEntity, Post> {
     override fun mapToEntity(domainModel: Post): PostCacheEntity {
         return PostCacheEntity(
             userId = domainModel.userId,
-            id = domainModel.id,
+            id = domainModel.postId,
             title = domainModel.title,
             body = domainModel.body
         )

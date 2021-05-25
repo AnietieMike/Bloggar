@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Posts</string>
     <string name="user_profile_image">user profile image</string>
-    <string name="error_text">Oops! Unable to connect. Make sure your internet is turned on</string>
+    <string name="error_text">Oops! 😰 Unable to connect to network. Make sure your internet is turned on, then restart your app</string>
 </resources>
