@@ -10,6 +10,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 val networkModule : Module = module {
+
+    factory { httpClient }
+    factory { logging }
+
     single<Retrofit> {
         Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
@@ -18,8 +22,8 @@ val networkModule : Module = module {
             .build()
     }
 
-    single {
-        get<Retrofit>().create<PostService>()
+    factory {
+        get<Retrofit>().create(PostService::class.java)
     }
 }
 

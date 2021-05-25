@@ -16,7 +16,7 @@ constructor(
     private val networkMapper: NetworkMapper
 ) {
 
-    suspend fun getPosts() : Flow<DataState<List<Post>>> = flow  {
+    suspend fun getPosts() : Flow<DataState<List<Post>>> = flow {
         emit(DataState.Loading)
         try {
             val remotePosts = postService.fetchPosts()

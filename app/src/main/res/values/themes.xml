@@ -25,4 +25,12 @@
     <style name="SmallTextAppearance" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/grey_700</item>
     </style>
+
+    <style name="AppTheme.Title.Collapsed" parent="android:TextAppearance">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.Title.Expanded" parent="android:TextAppearance">
+        <item name="android:textSize">48sp</item>
+    </style>
 </resources>
