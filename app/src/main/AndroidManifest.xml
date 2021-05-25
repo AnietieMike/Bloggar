@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DecagonAndroid007">
-        <activity android:name="com.decagon.android.sq007.MainActivity">
+        <activity android:name=".view.PostDetailActivity"></activity>
+        <activity android:name=".view.BlogPostsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
