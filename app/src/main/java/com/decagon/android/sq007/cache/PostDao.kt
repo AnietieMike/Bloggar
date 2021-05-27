@@ -8,9 +8,12 @@ import androidx.room.Query
 @Dao
 interface PostDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun add(postEntity: PostCacheEntity) : Long
 
     @Query("SELECT * FROM posts ")
     suspend fun get() : List<PostCacheEntity>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addComment(commentEntity: CommentCacheEntity) : Long
 }

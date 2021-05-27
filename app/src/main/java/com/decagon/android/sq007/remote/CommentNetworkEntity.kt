@@ -2,7 +2,7 @@ package com.decagon.android.sq007.remote
 
 import com.google.gson.annotations.SerializedName
 
-class CommentRemoteEntity(
+class CommentNetworkEntity(
 
     @SerializedName("postId")
     var postId: Int,
