@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/item_margin"
+    app:cardCornerRadius="10dp"
+    android:background="@color/grey_800">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/content_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/teal_200"
+            android:textSize="18sp"
+            android:layout_marginStart="@dimen/image_text_horizontal_margin"
+            android:textAppearance="@style/SubtitleTextAppearance"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/image_text_horizontal_margin"
+            android:textAppearance="@style/SubtitleTextAppearance"
+            tools:text="Email@yahoo.com" />
+
+        <View
+            style="@style/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:layout_marginBottom="@dimen/divider_margin" />
+
+        <TextView
+            android:id="@+id/commentBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textAppearance="@style/SmallTextAppearance"
+            tools:text="This is a comment body. Its length will determine the length of the post. To infinity and beyond!" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

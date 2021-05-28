@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:name=".BaseApplication"
         android:theme="@style/Theme.DecagonAndroid007">
-        <activity android:name=".views.PostDetailActivity"></activity>
+        <activity android:name=".views.post_details.PostDetailActivity"></activity>
         <activity android:name=".views.posts_list.BlogPostsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

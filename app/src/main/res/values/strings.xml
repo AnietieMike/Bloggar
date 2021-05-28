@@ -2,4 +2,9 @@
     <string name="app_name">Posts</string>
     <string name="user_profile_image">user profile image</string>
     <string name="error_text">Oops! 😰 Unable to connect to network. Make sure your internet is turned on, then restart your app</string>
+    <string name="comments">Comments</string>
+    <string name="add_comment">ADD Comment</string>
+    <string name="user_email">Email</string>
+    <string name="user_name_comment">Name</string>
+    <string name="comment">Comment</string>
 </resources>

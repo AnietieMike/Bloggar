@@ -1,8 +1,10 @@
 package com.decagon.android.sq007.cache
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+@Entity(tableName = "comments")
 data class CommentCacheEntity(
 
     @ColumnInfo(name = "id")

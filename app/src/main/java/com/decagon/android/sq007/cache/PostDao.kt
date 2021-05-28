@@ -12,8 +12,11 @@ interface PostDao {
     suspend fun add(postEntity: PostCacheEntity) : Long
 
     @Query("SELECT * FROM posts ")
-    suspend fun get() : List<PostCacheEntity>
+    suspend fun getPosts() : List<PostCacheEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addComment(commentEntity: CommentCacheEntity) : Long
+
+    @Query("SELECT * FROM comments ")
+    suspend fun getComments()
 }
