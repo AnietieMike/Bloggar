@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.decagon.android.sq007.R
 import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.util.DataState
+import com.decagon.android.sq007.util.Utils
 import com.decagon.android.sq007.viewmodels.BlogPostsViewModel
 import kotlinx.android.synthetic.main.activity_blog_posts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -51,28 +52,26 @@ class BlogPostsActivity : AppCompatActivity() {
     }
 
     private fun subscribeObservers() {
-        blogPostViewModel.dataState.observe(this, { dataState ->
-            when(dataState.status) {
+        blogPostViewModel.dataState.observe(this, { result ->
+            when(result.status) {
                 DataState.Status.SUCCESS -> {
-                    showProgressBar(false)
-                    dataState.data?.let { list ->
+                    Utils.showProgressBar(progressBar, false)
+                    result.data?.let { list ->
                         postsAdapter.updateData(list)
                     }
                 }
                 DataState.Status.ERROR -> {
-                    showProgressBar(false)
-                    dataState.message?.let {
+                    Utils.showProgressBar(progressBar, false)
+                    result.message?.let {
                         showError(it)
                     }
                 }
                 DataState.Status.LOADING -> {
-                    showProgressBar(true)
+                    Utils.showProgressBar(progressBar, true)
                 }
             }
         })
     }
-
-
 
     private fun showError(msg: String?) {
         if (msg != null) {
@@ -81,7 +80,4 @@ class BlogPostsActivity : AppCompatActivity() {
         text.text = getString(R.string.error_text)
     }
 
-    private fun showProgressBar(isDisplayed: Boolean) {
-        progressBar.visibility = if (isDisplayed) View.VISIBLE else View.GONE
-    }
 }

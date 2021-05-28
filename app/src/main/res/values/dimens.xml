@@ -3,7 +3,8 @@
     <dimen name="window_vertical_margin">8dp</dimen>
     <dimen name="window_horizontal_margin">8dp</dimen>
     <dimen name="content_margin">8dp</dimen>
-    <dimen name="item_margin">8dp</dimen>
+    <dimen name="item_margin">5dp</dimen>
+    <dimen name="item_margin_top">7dp</dimen>
     <dimen name="image_text_horizontal_margin">8dp</dimen>
     <dimen name="divider_margin">8dp</dimen>
 

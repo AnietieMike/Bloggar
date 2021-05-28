@@ -16,6 +16,6 @@ val cacheModule = module {
     }
 
     single {
-        get<AppDatabase>().postDao()
+        get<AppDatabase>().cacheDao()
     }
 }

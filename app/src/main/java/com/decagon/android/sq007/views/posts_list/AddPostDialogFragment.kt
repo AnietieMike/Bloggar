@@ -43,6 +43,8 @@ class AddPostDialogFragment : DialogFragment() {
                 addPostViewModel.insertPost(newPost)
                 addPostViewModel.fetchPosts()
             }
+
+            requireActivity().recreate()
         }
     }
 }

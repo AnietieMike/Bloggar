@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:background="@color/teal_200"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,20 +22,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             tools:text="Whatever it takes, lets do this thing right now or never"/>
 
         <TextView
-            android:id="@+id/postBody"
+            android:id="@+id/tvPostBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="20sp"
+            android:padding="15dp"
+            android:textSize="18sp"
             android:textColor="@color/white"
-            android:textAlignment="center"
             tools:text="Whatever it takes, lets do this thing right now or never,  lets do this thing right now or never lets do this thing right now or never"/>
 
     </LinearLayout>
@@ -58,6 +57,7 @@
         app:layout_constraintVertical_bias="0.003" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/commentsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -70,6 +70,7 @@
         tools:listitem="@layout/item_list_comments"/>
 
     <ProgressBar
+        android:id="@+id/commentsProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

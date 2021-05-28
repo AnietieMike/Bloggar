@@ -15,7 +15,7 @@ val repositoryModule = module {
     factory { CommentCacheMapper() }
 
     single { MainRepository(
-        postDao = get(), 
+        cacheDao = get(),
         postService = get(), 
         postCacheMapper = get(), 
         postNetworkMapper = get(),

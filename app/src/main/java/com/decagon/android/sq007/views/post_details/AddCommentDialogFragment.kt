@@ -51,7 +51,7 @@ class AddCommentDialogFragment(private val postId: Int) : DialogFragment() {
                 Log.d("New Comments", "onActivityCreated: $newComment")
                 dismiss()
             }
-            requireActivity().recreate()
+//            requireActivity().recreate()
         }
     }
 

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_list_post.view.*
 import kotlinx.android.synthetic.main.item_list_post.view.userName
 import java.util.*
 
-class CommentsAdapter(private val context: Context, private val list: ArrayList<Comment>) : RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {
+class CommentsAdapter(private val context: Context, private val list: List<Comment>) : RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {
     class CommentViewHolder (view: View, private val context: Context) : RecyclerView.ViewHolder(view) {
 
         fun bind(comment: Comment) {

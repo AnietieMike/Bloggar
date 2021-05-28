@@ -11,5 +11,5 @@ abstract class AppDatabase : RoomDatabase() {
         const val DATABASE_NAME = "blog_db"
     }
 
-    abstract fun postDao() : CacheDao
+    abstract fun cacheDao() : CacheDao
 }
