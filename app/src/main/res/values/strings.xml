@@ -7,4 +7,7 @@
     <string name="user_email">Email</string>
     <string name="user_name_comment">Name</string>
     <string name="comment">Comment</string>
+    <string name="title">Title</string>
+    <string name="create_new_post">Create New Post</string>
+    <string name="post_btn">Post</string>
 </resources>

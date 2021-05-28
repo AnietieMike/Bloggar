@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.decagon.android.sq007.model.MainRepository
-import com.decagon.android.sq007.model.Post
+import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.util.DataState
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

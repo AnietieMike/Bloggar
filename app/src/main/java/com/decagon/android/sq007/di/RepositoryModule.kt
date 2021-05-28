@@ -3,8 +3,8 @@ package com.decagon.android.sq007.di
 import com.decagon.android.sq007.cache.CommentCacheMapper
 import com.decagon.android.sq007.cache.PostCacheMapper
 import com.decagon.android.sq007.model.MainRepository
-import com.decagon.android.sq007.remote.CommentNetworkMapper
-import com.decagon.android.sq007.remote.PostNetworkMapper
+import com.decagon.android.sq007.model.remote.CommentNetworkMapper
+import com.decagon.android.sq007.model.remote.PostNetworkMapper
 import org.koin.dsl.module
 
 val repositoryModule = module {

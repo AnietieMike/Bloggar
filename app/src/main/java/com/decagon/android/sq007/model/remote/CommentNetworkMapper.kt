@@ -1,7 +1,6 @@
-package com.decagon.android.sq007.remote
+package com.decagon.android.sq007.model.remote
 
-import com.decagon.android.sq007.cache.CommentCacheEntity
-import com.decagon.android.sq007.model.Comment
+import com.decagon.android.sq007.model.domain.Comment
 import com.decagon.android.sq007.util.EntityMapper
 
 class CommentNetworkMapper : EntityMapper<CommentNetworkEntity, Comment> {

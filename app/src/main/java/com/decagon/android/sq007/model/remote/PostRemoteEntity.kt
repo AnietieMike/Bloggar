@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.remote
+package com.decagon.android.sq007.model.remote
 
 import com.google.gson.annotations.SerializedName
 

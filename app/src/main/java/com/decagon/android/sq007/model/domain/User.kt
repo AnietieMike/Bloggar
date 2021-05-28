@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.model
+package com.decagon.android.sq007.model.domain
 
 data class User(
     val id: String,

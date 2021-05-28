@@ -1,6 +1,6 @@
 package com.decagon.android.sq007.cache
 
-import com.decagon.android.sq007.model.Post
+import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.util.EntityMapper
 
 class PostCacheMapper : EntityMapper<PostCacheEntity, Post> {

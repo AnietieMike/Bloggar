@@ -1,7 +1,7 @@
 package com.decagon.android.sq007.apis
 
-import com.decagon.android.sq007.remote.CommentNetworkEntity
-import com.decagon.android.sq007.remote.PostRemoteEntity
+import com.decagon.android.sq007.model.remote.CommentNetworkEntity
+import com.decagon.android.sq007.model.remote.PostRemoteEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
 

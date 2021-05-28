@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.decagon.android.sq007.R
-import com.decagon.android.sq007.model.Post
+import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.views.post_details.PostDetailActivity
-import kotlinx.android.synthetic.main.include_user_info.view.*
 import kotlinx.android.synthetic.main.item_list_post.view.*
 import java.util.*
 

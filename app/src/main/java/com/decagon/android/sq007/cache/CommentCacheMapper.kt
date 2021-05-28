@@ -1,6 +1,6 @@
 package com.decagon.android.sq007.cache
 
-import com.decagon.android.sq007.model.Comment
+import com.decagon.android.sq007.model.domain.Comment
 import com.decagon.android.sq007.util.EntityMapper
 
 class CommentCacheMapper : EntityMapper<CommentCacheEntity, Comment> {

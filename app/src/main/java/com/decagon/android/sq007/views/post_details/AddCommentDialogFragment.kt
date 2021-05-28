@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.decagon.android.sq007.R
-import com.decagon.android.sq007.model.Comment
-import com.decagon.android.sq007.model.Post
-import com.decagon.android.sq007.viewmodels.BlogPostsViewModel
+import com.decagon.android.sq007.model.domain.Comment
 import com.decagon.android.sq007.viewmodels.PostDetailViewModel
 import kotlinx.android.synthetic.main.fragment_add_comment_dialog.*
 import org.koin.androidx.viewmodel.ext.android.viewModel

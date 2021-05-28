@@ -1,9 +1,9 @@
-package com.decagon.android.sq007.remote
+package com.decagon.android.sq007.model.remote
 
-import com.decagon.android.sq007.model.Post
+import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.util.EntityMapper
 
-class PostNetworkMapper : EntityMapper<PostRemoteEntity, Post > {
+class PostNetworkMapper : EntityMapper<PostRemoteEntity, Post> {
 
     override fun mapFromEntity(entity: PostRemoteEntity): Post {
         return Post(
