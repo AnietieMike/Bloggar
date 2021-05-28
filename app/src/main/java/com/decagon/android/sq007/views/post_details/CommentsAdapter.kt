@@ -7,21 +7,27 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.decagon.android.sq007.R
 import com.decagon.android.sq007.model.domain.Comment
+import kotlinx.android.synthetic.main.item_list_comments.view.*
+import kotlinx.android.synthetic.main.item_list_post.view.*
+import kotlinx.android.synthetic.main.item_list_post.view.userName
 import java.util.*
 
-class CommentsAdapter(private val context: Context, private val list: ArrayList<Comment>) : RecyclerView.Adapter<CommentsAdapter.PostViewHolder>() {
-    class PostViewHolder (view: View, private val context: Context) : RecyclerView.ViewHolder(view) {
+class CommentsAdapter(private val context: Context, private val list: ArrayList<Comment>) : RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {
+    class CommentViewHolder (view: View, private val context: Context) : RecyclerView.ViewHolder(view) {
 
         fun bind(comment: Comment) {
+            itemView.userName.text = comment.name.capitalize(Locale.ROOT)
+            itemView.userEmail.text = comment.email
+            itemView.commentBody.text = comment.body
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_comments, parent, false)
-        return PostViewHolder(view, context)
+        return CommentViewHolder(view, context)
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
         holder.bind(list[position])
     }
 

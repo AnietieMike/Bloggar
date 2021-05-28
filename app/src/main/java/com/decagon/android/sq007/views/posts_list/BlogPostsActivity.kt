@@ -3,6 +3,7 @@ package com.decagon.android.sq007.views.posts_list
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.decagon.android.sq007.R
@@ -29,10 +30,28 @@ class BlogPostsActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         postsAdapter = BlogPostsAdapter(this, posts)
         recyclerView.adapter = postsAdapter
+
+        // Add New Post
+        fabAddPost.setOnClickListener {
+            AddPostDialogFragment().show(supportFragmentManager, "ADD POST")
+        }
+
+        // SearchPosts
+        postSearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { blogPostViewModel.searchPosts(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { blogPostViewModel.searchPosts(it) }
+                return false
+            }
+        })
     }
 
     private fun subscribeObservers() {
-        blogPostViewModel.dataState.observe(this, Observer { dataState ->
+        blogPostViewModel.dataState.observe(this, { dataState ->
             when(dataState.status) {
                 DataState.Status.SUCCESS -> {
                     showProgressBar(false)
@@ -52,6 +71,8 @@ class BlogPostsActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
     private fun showError(msg: String?) {
         if (msg != null) {

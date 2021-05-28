@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.decagon.android.sq007.model.MainRepository
 import com.decagon.android.sq007.model.domain.Post
 import com.decagon.android.sq007.util.DataState
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -27,6 +28,52 @@ class BlogPostsViewModel constructor(private val mainRepository: MainRepository)
             mainRepository.getPosts().collect {
                 _dataState.value = it
             }
+        }
+    }
+
+    fun insertPost(post: Post) {
+        viewModelScope.launch {
+            mainRepository.insertPost(post)
+        }
+    }
+
+
+    private var cachedPosts = MutableLiveData<DataState<List<Post>>>()
+    private var isSearchingActive: Boolean = true
+    var isSearching = MutableStateFlow(false)
+
+    fun searchPosts(query: String) {
+
+        if (isSearchingActive) {
+            cachedPosts.value = _dataState.value
+            isSearchingActive = false
+        }
+
+        val listToSearch = if (isSearchingActive) {
+            dataState.value
+        } else {
+            cachedPosts.value
+        }
+        viewModelScope.launch {
+            if (query.isEmpty()) {
+                _dataState.value = cachedPosts.value
+                isSearching.value = false
+                isSearchingActive = true
+                return@launch
+            } else {
+                val results = listToSearch?.data?.filter {
+                    it.title.contains(query.trim(), ignoreCase = true) ||
+                            it.postId.toString().contains(query.trim())
+                }
+                results?.let {
+                    _dataState.value = DataState.success(results)
+                }
+            }
+            if (isSearchingActive) {
+                cachedPosts.value = _dataState.value
+                isSearchingActive = false
+            }
+            isSearching.value = true
         }
     }
 }

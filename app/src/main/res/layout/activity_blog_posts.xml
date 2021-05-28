@@ -39,6 +39,11 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/postSearchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -75,7 +80,7 @@
         android:layout_gravity="center"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabAddComment"
+        android:id="@+id/fabAddPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

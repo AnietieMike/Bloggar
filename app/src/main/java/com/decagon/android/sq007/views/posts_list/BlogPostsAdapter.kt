@@ -19,6 +19,9 @@ class BlogPostsAdapter(private val context: Context, private val list: ArrayList
         fun bind(post: Post) {
             itemView.setOnClickListener {
                 val intent = Intent(context, PostDetailActivity::class.java)
+                intent.putExtra(PostDetailActivity.POST_ID, post.postId)
+                intent.putExtra("Post Title", post.title)
+                intent.putExtra("Post Body", post.body)
                 context.startActivity(intent)
             }
 //            itemView.userUsername.text = "@${post.username}"
